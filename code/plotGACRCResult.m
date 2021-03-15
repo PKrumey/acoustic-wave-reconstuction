@@ -1,5 +1,20 @@
 function plotGACRCResult(inf,CRCPulse)
+% ************************************************************************
+%plotGACRCResult this function plots the best result inf for the 
+% synthetic bipolar pulse CRCpulse
+% ########################################################################
+% INPUTS
+% ########################################################################
+% inf:      struct containing the best result
+% CRCPulse: synthetic pulse
+% ########################################################################
+% Philipp Krumey
+% 15-03-2021
+% University of Duisburg-Essen
+% *************************************************************************
 
+%%calculate Fourier Coefficients and Fourier Series for synthetic bipolar
+% pulse  
 halfL=floor(length(CRCPulse)/2);
 CRCPulseSinCoef = SinCoefs(CRCPulse,length(inf.bestDNA.sinCoef)-1,halfL);
 CRCPulseCosCoef = CosCoefs(CRCPulse,length(inf.bestDNA.cosCoef)-1,halfL);
@@ -48,16 +63,18 @@ xlabel('Cosine Coefficients')
 ylabel('Strain Amplitude')
 legend
 
-%Plot Rocking Curves
-theta = inf.theta;
-time = [0 19 39 47 77];
-CRCPulseCRC = norm2unp(calcCRC(CRCPulse,theta,time));
-CRCPulsefSeriesCRC = norm2unp(calcCRC(CRCPulsefSeries,theta,time));
-retrievalCRC = norm2unp(calcCRC(inf.bestDNA.pulse,theta,time));
+%calculate rocking curves for best result and synthetic pulse
+theta = inf.theta;                                                  %angles of rocking curve
+time = [0 19 39 47 77];                                             %time points to be shown
+CRCPulseCRC = norm2unp(calcCRC(CRCPulse,theta,time));               %calculate rocking curves for CRCPulse
+CRCPulsefSeriesCRC = norm2unp(calcCRC(CRCPulsefSeries,theta,time)); %calculate rockings curves for Fourier Series of CRCPulse
+retrievalCRC = norm2unp(calcCRC(inf.bestDNA.pulse,theta,time));     %calculate rocking corves for best result
 
-calcFitness(CRCPulsefSeriesCRC(:,5),CRCPulseCRC(:,5),theta,[-0.6 -0.1 0.1 0.6])
-calcFitness(retrievalCRC(:,5),CRCPulseCRC(:,5),theta,[-0.6 -0.1 0.1 0.6])
+%calculate fitness for best result and synthetic pulse
+calcFitness(CRCPulsefSeriesCRC(:,5),CRCPulseCRC(:,5),theta,[-0.6 -0.1 0.1 0.6]) %calculate fitness of Fourier Series of CRCPulse for time[5]
+calcFitness(retrievalCRC(:,5),CRCPulseCRC(:,5),theta,[-0.6 -0.1 0.1 0.6])       %calculate fitness of best result for time[5]
 
+%plot rocking curves
 figure
 t = tiledlayout(2,2,'TileSpacing',"compact");
 
