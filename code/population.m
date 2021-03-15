@@ -16,9 +16,9 @@ classdef population < handle
         filter              % angular area in which rocking curves are compared
         MRC                 % measured rocking curves   
         MRC0                % unpumped measured rocking curve
-        CRC0
+        CRC0                % unpumped calculated rocking curve
         
-        pulseOrigin         % Original Pulse
+        pulseOrigin         % synthetic pulse
     end
     
     methods
