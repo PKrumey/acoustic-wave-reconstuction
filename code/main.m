@@ -1,4 +1,5 @@
 function main(workspace,genSize,filter,firstGen)
+    % ************************************************************************
     %MAIN routine to start optimization algorithm
     %   This is the main Function for running the optimization algorithm to retrieve the
     %   strain pulse out of the measured rocking curves for different time
@@ -16,6 +17,10 @@ function main(workspace,genSize,filter,firstGen)
     % filter:   pixels of the rocking curve which are compared e.g. [-0.4 -0.1 0.1 0.4]
     % firstGen: (optional) gives first generation as an array
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Philipp Krumey
+    % 14-03-2021 
+    % University of Duisburg-Essen
+    % *************************************************************************
 
     %% add workspace
     workspacecell = load(workspace);
@@ -27,6 +32,7 @@ function main(workspace,genSize,filter,firstGen)
     %% create first generation
     pop = population(genSize, filter, workspacecell.MRC, workspacecell.theta, workspacecell.time, firstGen);
     
+    %% check for bipolare pulse in workspace
     if isfield(workspacecell,'pulse')
        pop.pulseOrigin = workspacecell.pulse; 
     end
