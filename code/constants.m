@@ -1,9 +1,15 @@
 classdef constants
+    % ************************************************************************
     %CONSTANTS Structure that holds the TRXD constants for GaAs 111
-    %   
+    % ########################################################################
+    % Philipp Krumey
+    % 14-03-2021
+    % University of Duisburg-Essen
+    % ************************************************************************  
+    
     properties (Constant = true)
         %% substrate properties
-        dSubs       =   15e-6;                 % substrate thickness (m)
+        dSubs       =   15e-6;                  % substrate thickness (m)
         svSubs      =   5400;                   % Speed of sound
         F0_Re       =   254.958412168;          % Structural factors in forward direction (source XOP) real part
         F0_Im       =   20.2621596;             % Structural factors in forward direction (source XOP) imaginary part
@@ -17,7 +23,7 @@ classdef constants
         Pol_flag    =   0.5;                    % This flag determins the polarization of the X-Ray [0 means s pol, 1 means p pol, 0.5 unpol]
         
         %% fixed properties of strain pulse
-        R           =   0.3;%-0.02;%0.38;-0.26;%            % acoustic reflectivity of the metal/GaAs interface
+        R           =   0.3;                    % acoustic reflectivity of the metal/GaAs interface
         ll          =   88;                     % length of single comp and exp in GaAs (nm)
         maxStrain   =   4.5e-3;                 % maximum strain amplitude
     end  
