@@ -38,6 +38,7 @@ function fitness = calcFitness(CRC, MRC,theta,filter)
     %recalculating deveation into fitness
     fitness = logNorm(filtMRC, filtCRC);
     
+    %check for infinite values
     if(fitness==Inf)
        error("Infinit fitness value");
     end
