@@ -1,8 +1,25 @@
-function pulse = ExpGauss3(ll)
+function pulse = Thomsen(ll)
+% ************************************************************************
+%Thomsen this function calculates a random bipolar pulse from the thomsen
+%       model
+% ########################################################################
+% INPUTS
+% ########################################################################
+% ll:       half the length of the bipolar pulse to be calculated
+%#########################################################################
+% OUTPUT
+% ########################################################################
+% pulse:    resulting random pulse from the thomsen model 
+% ########################################################################
+% Fabian Brinks, Philipp Krumey
+% 14-03-2021
+% University of Duisburg-Essen
+% ************************************************************************
 
-lambda = (5+1005*rand)*10^-9;
-v = 4730;
-D=1.2*rand*v*lambda;
+%random variables
+lambda = (5+400*rand)*10^-9;          % scale length of the bipolar pulse between 5 nm and 405 nm
+v = 4730;                             % speed of sound
+D=1.2*rand*v*lambda;                  % diffusion constant between 0 m^2/s and 1.2*v*lambda m^2/s
 
 A =(-ll:ll)*10^-9;
 
@@ -76,6 +93,6 @@ parfor a = 1:numel(A)  % do the numerical integration for every value of A; Note
     F(a) = F1(a) + F2(a); % sum up full F
 end
 x=-ll:ll;
-pulse=F/trapz(x,abs(F));
+pulse=F/trapz(x,abs(F));                    %norm absolute area to 1
 
 end
