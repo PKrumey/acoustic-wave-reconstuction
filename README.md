@@ -25,10 +25,15 @@ workspace: holds the workspace with the measured or the synthetic data in the fo
 -time:  vector contaigning the time points of the rocking curves  
 -theta: vector contaigning the angles of the rocking curves  
 -MRC: array containing the rocking curves in the form [theta,times]. first column has to be a unpumped rocking curve  
+(-pulse: vector that contains a synthetic bipolare pulse (optional))   
 
 
-# Instructions:
-run the "start"-script to begin with the optimization
+# Start Instructions:
+run the "start"-script to to call the main function with the parameters: (workspace, generation size, filter area for fitness calculation, precalculated first generation (optional).
+
+# Constraints
+  
+number of fourier coefficients: the number of fourier coefficients included in the reconstruction can be found in firstGeneration:line
 
 
 
