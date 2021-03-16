@@ -1,6 +1,6 @@
 function Coefs = CosCoefs(f,maxk,halfL)
 % ************************************************************************
-%SINCOEFS Calculates a number of cosine fourier coefficients for the 
+%CosCOEFS Calculates a number of cosine fourier coefficients for the 
 %         function f
 % ########################################################################
 % INPUTS
