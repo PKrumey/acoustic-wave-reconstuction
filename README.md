@@ -21,6 +21,14 @@ support_code: holds the subroutines for the reconstruction
 -norm2unp: function that norms the rocking curves to a unpumped rocking curve  
 -Thomsen: calulate a thomsen pulse with random parameters  
    
+XRD calculation: holds the data and programs to calculate and convolute the rocking curves  
+-asymmetric_lorentz_convolution_v5_GaAs111: convolution between the measured rocking curves, an asymmetric lorentzian function and some constant vlaues  
+-d_DynXDiffEquSubsV11: contains the differential equation used for calculating the rocking curves  
+-DXRD_ode23_C_mex.mexw: pre compilated function that solves the differential equation for calculating the rocking curves  
+-RC_Ti_GaAs: File that contains the averared unpumped rocking curves for calculating the instrument function  
+-substrate_convolution_v5_GaAs111sm: function that calculates the convolution of rocking curves using a asymmetric loretzian function and the averaged unpumped rocking curves  
+-XRD_inputsV8_m_s: structure calculating the parameters used in the differential equation out of the constants of the substrate  
+   
 workspace: holds the workspace with the measured or the synthetic data in the following format   
 -time:  vector contaigning the time points of the rocking curves  
 -theta: vector contaigning the angles of the rocking curves  
@@ -33,7 +41,7 @@ run the "start"-script to to call the main function with the parameters: (worksp
 
 # Constraints
   
-number of fourier coefficients: the number of fourier coefficients included in the reconstruction can be found in firstGeneration:line
+number of fourier coefficients: the number of fourier coefficients included in the reconstruction can be found in firstGeneration: line 52, line 54
 
 
 
