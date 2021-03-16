@@ -20,6 +20,8 @@ function Coefs = SinCoefs(f,maxk,halfL)
 % ************************************************************************
 x = -halfL:halfL;
 k = 0:maxk;
+%calculate the cosine coefficients according to the equation
+%Coefs_k = 1/halfL*integrate_{-halfL}^{halfL} f*sin(pi*k*x/halfL) dx
 Coefs = trapz(x,f'.*sin(pi*k.*x'/halfL)/halfL);
 end
 
