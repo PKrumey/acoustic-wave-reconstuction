@@ -13,7 +13,7 @@ addpath(genpath('support_code'));
 addpath(genpath('workspace'));
 addpath(genpath('XRD calculation'));
 
-%start main routine
+%start main routine with (rocking curves, generation size, filter, precalculated first generation)
 main('workspaceTiGaAs111Full.mat',200,[-0.6 -0.1 0.1 0.6],'none');
 
 
