@@ -41,10 +41,10 @@ run the "start"-script to to call the main function with the parameters: (worksp
 
 # Constraints
   
-number of fourier coefficients: the number of fourier coefficients included in the reconstruction can be found in firstGeneration: line 52, line 54   
+number of fourier coefficients: the number of fourier coefficients included in the reconstruction can be found in firstGeneration: line 52,54   
 random mean strain: the random mean strain for the bipolar pulses of the first generation can be set in firstGeneration: line 60   
 fourier coefficient area: the area around the fourier coefficients that is searched for optimization can be found in population: line 132
-Reflectivity and bipolar pulse length: the reflectivity and the bipolar pulse length can be set in constants: 
+Reflectivity and bipolar pulse length: the reflectivity and the bipolar pulse length can be set in constants: line 26,27
 
 
 
