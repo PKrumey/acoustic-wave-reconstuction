@@ -1,4 +1,5 @@
-# acoustic-wave-reconstuction
+# acoustic-wave-reconstuction  
+  
 Matlab optimization algorithm to reconstruct acoustic waves from time-resolved X-Ray diffraction data
 
 # The Folder structure is as followed:
@@ -35,16 +36,20 @@ workspace: holds the workspace with the measured or the synthetic data in the fo
 -MRC: array containing the rocking curves in the form [theta,times]. first column has to be a unpumped rocking curve  
 (-pulse: vector that contains a synthetic bipolare pulse (optional))   
 
-
-# Start Instructions:
-run the "start"-script to to call the main function with the parameters: (workspace, generation size, filter area for fitness calculation, precalculated first generation (optional).
-
 # Constraints
   
 number of fourier coefficients: the number of fourier coefficients included in the reconstruction can be found in firstGeneration: line 52,54   
 random mean strain: the random mean strain for the bipolar pulses of the first generation can be set in firstGeneration: line 60   
 fourier coefficient area: the area around the fourier coefficients that is searched for optimization can be found in population: line 132
-Reflectivity and bipolar pulse length: the reflectivity and the bipolar pulse length can be set in constants: line 26,27
+Reflectivity and bipolar pulse length: the reflectivity and the bipolar pulse length can be set in constants: line 26,27   
+  
+# Start Instructions:  
+  
+run the "start"-script to to call the main function with the parameters: (workspace, generation size, filter area for fitness calculation, precalculated first generation (optional).  
+  
+# General Description
+
+The Algorithm starts with generating a first generation with the fixed bipolar pulse length and a fixed number of fourier coefficients. In the first generation a random bipolar pulse is calculated from the thomsen modell in the script "thomsen". The calculated bipolar pulse will be expanded into a fourier series. The fourier series, the fourier coefficients, the rocking curves and also the fitness are stored for each bipolar pulse in the data object "DNA". In the next step the bipolar pulse in the first generation with the best fitness will be selected. From that bipolar pulse the first fourier coefficient will be selected for optimization. In this procedure (population line
 
 
 
